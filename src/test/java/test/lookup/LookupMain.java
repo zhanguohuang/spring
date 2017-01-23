@@ -5,11 +5,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import test.lookup.app.GetBeanTest;
 
-public class Main {
+public class LookupMain {
 
 	public static void main(String[] args) {
 		ApplicationContext bf = 
-				new ClassPathXmlApplicationContext("test/lookup/lookupTest.xml");
+				new ClassPathXmlApplicationContext("lookup/lookupTest.xml");
 		GetBeanTest test = (GetBeanTest) bf.getBean("getBeanTest");
 		test.showMe();
 	}

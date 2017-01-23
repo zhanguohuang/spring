@@ -4,6 +4,5 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 						http://www.springframework.org/schema/beans/spring-beans-4.1.xsd ">
 	<!-- 加载bean -->
-	<bean id="hello" class="bean.Hello" />
-	<bean id="test" class="bean.Test" />
+	<bean id="testListener" class="listener.TestListener"/>
 </beans>
