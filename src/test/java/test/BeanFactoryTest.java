@@ -14,7 +14,7 @@ public class BeanFactoryTest {
 
 	@Test
 	public void testSimpleLoad() {
-		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("beanFactoryTest.xml"));
+		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("beanFactoryTest.xml")); //load&register BeanDefinition 
 		MyTestBean bean = (MyTestBean) bf.getBean("myTestBean");
 		assertEquals("testStr", bean.getTestStr());
 	}
