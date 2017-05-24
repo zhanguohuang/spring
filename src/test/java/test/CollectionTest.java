@@ -1,6 +1,5 @@
 package test;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class CollectionTest {
@@ -10,11 +9,12 @@ public class CollectionTest {
 			"listener/listener.xml", "lookup/lookupTest.xml", "postprocess/postprocess.xml"};
 	
 	public static void main(String[] args) {
-		ApplicationContext app = new ClassPathXmlApplicationContext(classPath);
+		ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext(classPath);
 		String[] beanNames = app.getBeanDefinitionNames();
 		System.out.println("-=-=-=-=-show all beanName-=-=-=-=-");
 		for(String beanName : beanNames) {
 			System.out.println(beanName);
 		}
+		app.close();
 	}
 }
