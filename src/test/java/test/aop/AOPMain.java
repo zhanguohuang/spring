@@ -9,7 +9,7 @@ public class AOPMain {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("aop/aop.xml");
-		TestBean bean = (TestBean) ctx.getBean("test");
+		TestBean bean = (TestBean) ctx.getBean("testBean");
 		bean.test();
 	}
 

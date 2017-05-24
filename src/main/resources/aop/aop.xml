@@ -9,6 +9,6 @@
 	<!-- 加载bean -->
 	<aop:aspectj-autoproxy />
 	
-	<bean id="test" class="aop.TestBean" />
+	<bean id="testBean" class="aop.TestBean" />
 	<bean class="aop.AspectJTest" />
 </beans>
