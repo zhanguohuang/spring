@@ -9,6 +9,6 @@
 	
 	<bean id="baseBean" class="autowired.BaseBean" />
 	
-	<!-- 如果使用了<context:component-scan base-package="...">则会自动注入此bean -->
+	<!-- 如果使用了<context:component-scan base-package="..." />则会自动注入此bean -->
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>  
 </beans>
