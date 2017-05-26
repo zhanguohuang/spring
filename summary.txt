@@ -1,0 +1,12 @@
+beanFactory实例化bean的过程
+1.给机会 beforeInstantiation ->成功则调用afterIniatiaization即可返回bean
+2.开始实例化 如果有 FactoryMethod 则使用此方法
+3.实例化完成，马上给MergedBeanDefinitionPostProcessor一个机会
+4.开始暴露早期的bean，用于解决循环依赖
+5.开始注入属性，先给postProcessAfterInstantiation一个机会注入ApplicationContext的属性，
+然后注入properties，最后注入@Autowired，@Resource
+6.调用invokeAwareMethods将BeanFactory填入，本来就有的
+7.开始给postProcessBeforeInitialization机会初始化bean
+8.如果有初始化方法，则使用初始化方法
+9.给postProcessAfterInitialization一次机会，开始注入aop
+10.如果初始化出来发现是FactoryBean，则给个机会调用工厂方法创建真正需要的Bean
