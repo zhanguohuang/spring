@@ -3,5 +3,41 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<display-name>springmvc</display-name>
+
+	<!-- 使用ContextLoaderListener配置时，需要告诉它Spring配置文件的位置 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:springmvc/applicationContext.xml</param-value>
+	</context-param>
+	
+	<!-- 这里DispatcherServlet将试图从一个叫做spring-servlet.xml的文件中载入应用上下文 -->
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+	
+	<!-- servlet监听器 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- 注册自己的监听器 -->
+	<listener>
+		<listener-class>springmvc.MyDataContextListener</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>myservlet</servlet-name>
+		<servlet-class>springmvc.MyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>myservlet</servlet-name>
+		<url-pattern>*.test</url-pattern>
+	</servlet-mapping>
 </web-app>
